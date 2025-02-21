@@ -1,0 +1,18 @@
+datasource db {
+  provider  = "postgresql"
+  url  	    = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model LastCheckRecord {
+  id                String   @id
+  last_checked_at   Int
+}
+
+model Address {
+  id          Int     @id @default(autoincrement())
+  address     String  @unique
+}
